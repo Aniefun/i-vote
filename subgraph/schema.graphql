@@ -1,0 +1,93 @@
+type AgentCreated @entity(immutable: true) {
+  id: Bytes!
+  agentId: Bytes! # address
+  data: Bytes! # bytes
+  unit: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ManagerCreated @entity(immutable: true) {
+  id: Bytes!
+  managerId: Bytes! # address
+  data: Bytes! # bytes
+  state: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PartyCreated @entity(immutable: true) {
+  id: Bytes!
+  partyId: BigInt! # uint256
+  data: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PollCreated @entity(immutable: true) {
+  id: Bytes!
+  data: Bytes! # bytes
+  endsAt: BigInt! # uint256
+  startAt: BigInt! # uint256
+  numOfVotes: BigInt! # uint256
+  units: [BigInt!]! # uint256[]
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PollEnded @entity(immutable: true) {
+  id: Bytes!
+  pollId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PollResumed @entity(immutable: true) {
+  id: Bytes!
+  pollId: BigInt! # uint256
+  newEndAt: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type VoteCasted @entity(immutable: true) {
+  id: Bytes!
+  pollId: BigInt! # uint256
+  voterId: Bytes! # address
+  partyId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type VoterCreated @entity(immutable: true) {
+  id: Bytes!
+  voterId: Bytes! # address
+  data: Bytes! # bytes
+  unit: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type VoterSuspended @entity(immutable: true) {
+  id: Bytes!
+  voterId: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type VoterUnSuspended @entity(immutable: true) {
+  id: Bytes!
+  voterId: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

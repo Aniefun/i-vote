@@ -1,0 +1,51 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: IVoteCore
+    network: mumbai
+    source:
+      address: "0xc78c8cda4d0e0D5C72c1725f6948b0a6140B49D4"
+      abi: IVoteCore
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AgentCreated
+        - ManagerCreated
+        - PartyCreated
+        - PollCreated
+        - PollEnded
+        - PollResumed
+        - VoteCasted
+        - VoterCreated
+        - VoterSuspended
+        - VoterUnSuspended
+      abis:
+        - name: IVoteCore
+          file: ./abis/IVoteCore.json
+      eventHandlers:
+        - event: AgentCreated(address,bytes,uint256)
+          handler: handleAgentCreated
+        - event: ManagerCreated(address,bytes,uint8)
+          handler: handleManagerCreated
+        - event: PartyCreated(uint256,bytes)
+          handler: handlePartyCreated
+        - event: PollCreated(bytes,uint256,uint256,uint256,uint256[])
+          handler: handlePollCreated
+        - event: PollEnded(uint256)
+          handler: handlePollEnded
+        - event: PollResumed(uint256,uint256)
+          handler: handlePollResumed
+        - event: VoteCasted(uint256,address,uint256)
+          handler: handleVoteCasted
+        - event: VoterCreated(address,bytes,uint256)
+          handler: handleVoterCreated
+        - event: VoterSuspended(address)
+          handler: handleVoterSuspended
+        - event: VoterUnSuspended(address)
+          handler: handleVoterUnSuspended
+      file: ./src/i-vote-core.ts
