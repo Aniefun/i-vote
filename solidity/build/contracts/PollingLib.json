@@ -7,23 +7,23 @@
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "61:1285:7:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "61:1285:7:-:0;;;;;;;;",
+  "sourceMap": "61:1285:16:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "61:1285:16:-:0;;;;;;;;",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\nlibrary PollingLib {\r\n    struct Voter {\r\n        bytes data;\r\n        bool suspended;\r\n        uint256 numOfVotes;\r\n        uint256 unit;\r\n    }\r\n    struct Agent {\r\n        bytes data;\r\n        uint256 unit;\r\n    }\r\n\r\n    struct Manager {\r\n        bytes data;\r\n        State state;\r\n    }\r\n\r\n    struct Uint {\r\n        uint256 id;\r\n        State state;\r\n        uint256 localGovernment;\r\n        uint256 numOfAccreditedVoters;\r\n    }\r\n\r\n    struct Poll {\r\n        bytes data;\r\n        uint256 endAt;\r\n        uint256 startAt;\r\n        uint256 numOfVotes;\r\n        uint256[] units;\r\n        string nftUri;\r\n    }\r\n\r\n    struct Party {\r\n        bytes data;\r\n    }\r\n\r\n    enum State {\r\n        Abia,\r\n        Adamawa,\r\n        AkwaIbom,\r\n        Anambra,\r\n        Bauchi,\r\n        Bayelsa,\r\n        Benue,\r\n        Borno,\r\n        CrossRiver,\r\n        Delta,\r\n        Ebonyi,\r\n        Edo,\r\n        Ekiti,\r\n        Enugu,\r\n        Gombe,\r\n        Imo,\r\n        Jigawa,\r\n        Kaduna,\r\n        Kano,\r\n        Katsina,\r\n        Kebbi,\r\n        Kogi,\r\n        Kwara,\r\n        Lagos,\r\n        Nasarawa,\r\n        Niger,\r\n        Ogun,\r\n        Ondo,\r\n        Osun,\r\n        Oyo,\r\n        Plateau,\r\n        Rivers,\r\n        Sokoto,\r\n        Taraba,\r\n        Yobe,\r\n        Zamfara\r\n    }\r\n}\r\n",
   "sourcePath": "C:\\Users\\DELL\\Documents\\i-vote\\solidity\\contracts\\libraries\\PollingLib.sol",
   "ast": {
     "absolutePath": "project:/contracts/libraries/PollingLib.sol",
     "exportedSymbols": {
       "PollingLib": [
-        1233
+        3951
       ]
     },
-    "id": 1234,
+    "id": 3952,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1148,
+        "id": 3866,
         "literals": [
           "solidity",
           "^",
@@ -31,7 +31,7 @@
           ".20"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:24:7"
+        "src": "33:24:16"
       },
       {
         "abstract": false,
@@ -40,27 +40,27 @@
         "contractDependencies": [],
         "contractKind": "library",
         "fullyImplemented": true,
-        "id": 1233,
+        "id": 3951,
         "linearizedBaseContracts": [
-          1233
+          3951
         ],
         "name": "PollingLib",
-        "nameLocation": "69:10:7",
+        "nameLocation": "69:10:16",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "PollingLib.Voter",
-            "id": 1157,
+            "id": 3875,
             "members": [
               {
                 "constant": false,
-                "id": 1150,
+                "id": 3868,
                 "mutability": "mutable",
                 "name": "data",
-                "nameLocation": "117:4:7",
+                "nameLocation": "117:4:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1157,
-                "src": "111:10:7",
+                "scope": 3875,
+                "src": "111:10:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -68,10 +68,10 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 1149,
+                  "id": 3867,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
-                  "src": "111:5:7",
+                  "src": "111:5:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes_storage_ptr",
                     "typeString": "bytes"
@@ -81,13 +81,13 @@
               },
               {
                 "constant": false,
-                "id": 1152,
+                "id": 3870,
                 "mutability": "mutable",
                 "name": "suspended",
-                "nameLocation": "137:9:7",
+                "nameLocation": "137:9:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1157,
-                "src": "132:14:7",
+                "scope": 3875,
+                "src": "132:14:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -95,10 +95,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1151,
+                  "id": 3869,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "132:4:7",
+                  "src": "132:4:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -108,13 +108,13 @@
               },
               {
                 "constant": false,
-                "id": 1154,
+                "id": 3872,
                 "mutability": "mutable",
                 "name": "numOfVotes",
-                "nameLocation": "165:10:7",
+                "nameLocation": "165:10:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1157,
-                "src": "157:18:7",
+                "scope": 3875,
+                "src": "157:18:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -122,10 +122,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1153,
+                  "id": 3871,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "157:7:7",
+                  "src": "157:7:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -135,13 +135,13 @@
               },
               {
                 "constant": false,
-                "id": 1156,
+                "id": 3874,
                 "mutability": "mutable",
                 "name": "unit",
-                "nameLocation": "194:4:7",
+                "nameLocation": "194:4:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1157,
-                "src": "186:12:7",
+                "scope": 3875,
+                "src": "186:12:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -149,10 +149,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1155,
+                  "id": 3873,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "186:7:7",
+                  "src": "186:7:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -162,25 +162,25 @@
               }
             ],
             "name": "Voter",
-            "nameLocation": "94:5:7",
+            "nameLocation": "94:5:16",
             "nodeType": "StructDefinition",
-            "scope": 1233,
-            "src": "87:119:7",
+            "scope": 3951,
+            "src": "87:119:16",
             "visibility": "public"
           },
           {
             "canonicalName": "PollingLib.Agent",
-            "id": 1162,
+            "id": 3880,
             "members": [
               {
                 "constant": false,
-                "id": 1159,
+                "id": 3877,
                 "mutability": "mutable",
                 "name": "data",
-                "nameLocation": "242:4:7",
+                "nameLocation": "242:4:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1162,
-                "src": "236:10:7",
+                "scope": 3880,
+                "src": "236:10:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -188,10 +188,10 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 1158,
+                  "id": 3876,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
-                  "src": "236:5:7",
+                  "src": "236:5:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes_storage_ptr",
                     "typeString": "bytes"
@@ -201,13 +201,13 @@
               },
               {
                 "constant": false,
-                "id": 1161,
+                "id": 3879,
                 "mutability": "mutable",
                 "name": "unit",
-                "nameLocation": "265:4:7",
+                "nameLocation": "265:4:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1162,
-                "src": "257:12:7",
+                "scope": 3880,
+                "src": "257:12:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -215,10 +215,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1160,
+                  "id": 3878,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "257:7:7",
+                  "src": "257:7:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -228,25 +228,25 @@
               }
             ],
             "name": "Agent",
-            "nameLocation": "219:5:7",
+            "nameLocation": "219:5:16",
             "nodeType": "StructDefinition",
-            "scope": 1233,
-            "src": "212:65:7",
+            "scope": 3951,
+            "src": "212:65:16",
             "visibility": "public"
           },
           {
             "canonicalName": "PollingLib.Manager",
-            "id": 1168,
+            "id": 3886,
             "members": [
               {
                 "constant": false,
-                "id": 1164,
+                "id": 3882,
                 "mutability": "mutable",
                 "name": "data",
-                "nameLocation": "317:4:7",
+                "nameLocation": "317:4:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1168,
-                "src": "311:10:7",
+                "scope": 3886,
+                "src": "311:10:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -254,10 +254,10 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 1163,
+                  "id": 3881,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
-                  "src": "311:5:7",
+                  "src": "311:5:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes_storage_ptr",
                     "typeString": "bytes"
@@ -267,36 +267,36 @@
               },
               {
                 "constant": false,
-                "id": 1167,
+                "id": 3885,
                 "mutability": "mutable",
                 "name": "state",
-                "nameLocation": "338:5:7",
+                "nameLocation": "338:5:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1168,
-                "src": "332:11:7",
+                "scope": 3886,
+                "src": "332:11:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_State_$1232",
+                  "typeIdentifier": "t_enum$_State_$3950",
                   "typeString": "enum PollingLib.State"
                 },
                 "typeName": {
-                  "id": 1166,
+                  "id": 3884,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1165,
+                    "id": 3883,
                     "name": "State",
                     "nameLocations": [
-                      "332:5:7"
+                      "332:5:16"
                     ],
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1232,
-                    "src": "332:5:7"
+                    "referencedDeclaration": 3950,
+                    "src": "332:5:16"
                   },
-                  "referencedDeclaration": 1232,
-                  "src": "332:5:7",
+                  "referencedDeclaration": 3950,
+                  "src": "332:5:16",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_State_$1232",
+                    "typeIdentifier": "t_enum$_State_$3950",
                     "typeString": "enum PollingLib.State"
                   }
                 },
@@ -304,25 +304,25 @@
               }
             ],
             "name": "Manager",
-            "nameLocation": "292:7:7",
+            "nameLocation": "292:7:16",
             "nodeType": "StructDefinition",
-            "scope": 1233,
-            "src": "285:66:7",
+            "scope": 3951,
+            "src": "285:66:16",
             "visibility": "public"
           },
           {
             "canonicalName": "PollingLib.Uint",
-            "id": 1178,
+            "id": 3896,
             "members": [
               {
                 "constant": false,
-                "id": 1170,
+                "id": 3888,
                 "mutability": "mutable",
                 "name": "id",
-                "nameLocation": "390:2:7",
+                "nameLocation": "390:2:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1178,
-                "src": "382:10:7",
+                "scope": 3896,
+                "src": "382:10:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -330,10 +330,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1169,
+                  "id": 3887,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "382:7:7",
+                  "src": "382:7:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -343,36 +343,36 @@
               },
               {
                 "constant": false,
-                "id": 1173,
+                "id": 3891,
                 "mutability": "mutable",
                 "name": "state",
-                "nameLocation": "409:5:7",
+                "nameLocation": "409:5:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1178,
-                "src": "403:11:7",
+                "scope": 3896,
+                "src": "403:11:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_State_$1232",
+                  "typeIdentifier": "t_enum$_State_$3950",
                   "typeString": "enum PollingLib.State"
                 },
                 "typeName": {
-                  "id": 1172,
+                  "id": 3890,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1171,
+                    "id": 3889,
                     "name": "State",
                     "nameLocations": [
-                      "403:5:7"
+                      "403:5:16"
                     ],
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1232,
-                    "src": "403:5:7"
+                    "referencedDeclaration": 3950,
+                    "src": "403:5:16"
                   },
-                  "referencedDeclaration": 1232,
-                  "src": "403:5:7",
+                  "referencedDeclaration": 3950,
+                  "src": "403:5:16",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_State_$1232",
+                    "typeIdentifier": "t_enum$_State_$3950",
                     "typeString": "enum PollingLib.State"
                   }
                 },
@@ -380,13 +380,13 @@
               },
               {
                 "constant": false,
-                "id": 1175,
+                "id": 3893,
                 "mutability": "mutable",
                 "name": "localGovernment",
-                "nameLocation": "433:15:7",
+                "nameLocation": "433:15:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1178,
-                "src": "425:23:7",
+                "scope": 3896,
+                "src": "425:23:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -394,10 +394,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1174,
+                  "id": 3892,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "425:7:7",
+                  "src": "425:7:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -407,13 +407,13 @@
               },
               {
                 "constant": false,
-                "id": 1177,
+                "id": 3895,
                 "mutability": "mutable",
                 "name": "numOfAccreditedVoters",
-                "nameLocation": "467:21:7",
+                "nameLocation": "467:21:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1178,
-                "src": "459:29:7",
+                "scope": 3896,
+                "src": "459:29:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -421,10 +421,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1176,
+                  "id": 3894,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "459:7:7",
+                  "src": "459:7:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -434,25 +434,25 @@
               }
             ],
             "name": "Uint",
-            "nameLocation": "366:4:7",
+            "nameLocation": "366:4:16",
             "nodeType": "StructDefinition",
-            "scope": 1233,
-            "src": "359:137:7",
+            "scope": 3951,
+            "src": "359:137:16",
             "visibility": "public"
           },
           {
             "canonicalName": "PollingLib.Poll",
-            "id": 1192,
+            "id": 3910,
             "members": [
               {
                 "constant": false,
-                "id": 1180,
+                "id": 3898,
                 "mutability": "mutable",
                 "name": "data",
-                "nameLocation": "533:4:7",
+                "nameLocation": "533:4:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1192,
-                "src": "527:10:7",
+                "scope": 3910,
+                "src": "527:10:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -460,10 +460,10 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 1179,
+                  "id": 3897,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
-                  "src": "527:5:7",
+                  "src": "527:5:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes_storage_ptr",
                     "typeString": "bytes"
@@ -473,13 +473,13 @@
               },
               {
                 "constant": false,
-                "id": 1182,
+                "id": 3900,
                 "mutability": "mutable",
                 "name": "endAt",
-                "nameLocation": "556:5:7",
+                "nameLocation": "556:5:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1192,
-                "src": "548:13:7",
+                "scope": 3910,
+                "src": "548:13:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -487,10 +487,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1181,
+                  "id": 3899,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "548:7:7",
+                  "src": "548:7:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -500,13 +500,13 @@
               },
               {
                 "constant": false,
-                "id": 1184,
+                "id": 3902,
                 "mutability": "mutable",
                 "name": "startAt",
-                "nameLocation": "580:7:7",
+                "nameLocation": "580:7:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1192,
-                "src": "572:15:7",
+                "scope": 3910,
+                "src": "572:15:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -514,10 +514,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1183,
+                  "id": 3901,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "572:7:7",
+                  "src": "572:7:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -527,13 +527,13 @@
               },
               {
                 "constant": false,
-                "id": 1186,
+                "id": 3904,
                 "mutability": "mutable",
                 "name": "numOfVotes",
-                "nameLocation": "606:10:7",
+                "nameLocation": "606:10:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1192,
-                "src": "598:18:7",
+                "scope": 3910,
+                "src": "598:18:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -541,10 +541,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1185,
+                  "id": 3903,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "598:7:7",
+                  "src": "598:7:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -554,13 +554,13 @@
               },
               {
                 "constant": false,
-                "id": 1189,
+                "id": 3907,
                 "mutability": "mutable",
                 "name": "units",
-                "nameLocation": "637:5:7",
+                "nameLocation": "637:5:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1192,
-                "src": "627:15:7",
+                "scope": 3910,
+                "src": "627:15:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -569,18 +569,18 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1187,
+                    "id": 3905,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "627:7:7",
+                    "src": "627:7:16",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1188,
+                  "id": 3906,
                   "nodeType": "ArrayTypeName",
-                  "src": "627:9:7",
+                  "src": "627:9:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                     "typeString": "uint256[]"
@@ -590,13 +590,13 @@
               },
               {
                 "constant": false,
-                "id": 1191,
+                "id": 3909,
                 "mutability": "mutable",
                 "name": "nftUri",
-                "nameLocation": "660:6:7",
+                "nameLocation": "660:6:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1192,
-                "src": "653:13:7",
+                "scope": 3910,
+                "src": "653:13:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -604,10 +604,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1190,
+                  "id": 3908,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "653:6:7",
+                  "src": "653:6:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -617,25 +617,25 @@
               }
             ],
             "name": "Poll",
-            "nameLocation": "511:4:7",
+            "nameLocation": "511:4:16",
             "nodeType": "StructDefinition",
-            "scope": 1233,
-            "src": "504:170:7",
+            "scope": 3951,
+            "src": "504:170:16",
             "visibility": "public"
           },
           {
             "canonicalName": "PollingLib.Party",
-            "id": 1195,
+            "id": 3913,
             "members": [
               {
                 "constant": false,
-                "id": 1194,
+                "id": 3912,
                 "mutability": "mutable",
                 "name": "data",
-                "nameLocation": "712:4:7",
+                "nameLocation": "712:4:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 1195,
-                "src": "706:10:7",
+                "scope": 3913,
+                "src": "706:10:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -643,10 +643,10 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 1193,
+                  "id": 3911,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
-                  "src": "706:5:7",
+                  "src": "706:5:16",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes_storage_ptr",
                     "typeString": "bytes"
@@ -656,282 +656,282 @@
               }
             ],
             "name": "Party",
-            "nameLocation": "689:5:7",
+            "nameLocation": "689:5:16",
             "nodeType": "StructDefinition",
-            "scope": 1233,
-            "src": "682:42:7",
+            "scope": 3951,
+            "src": "682:42:16",
             "visibility": "public"
           },
           {
             "canonicalName": "PollingLib.State",
-            "id": 1232,
+            "id": 3950,
             "members": [
               {
-                "id": 1196,
+                "id": 3914,
                 "name": "Abia",
-                "nameLocation": "754:4:7",
+                "nameLocation": "754:4:16",
                 "nodeType": "EnumValue",
-                "src": "754:4:7"
+                "src": "754:4:16"
               },
               {
-                "id": 1197,
+                "id": 3915,
                 "name": "Adamawa",
-                "nameLocation": "769:7:7",
+                "nameLocation": "769:7:16",
                 "nodeType": "EnumValue",
-                "src": "769:7:7"
+                "src": "769:7:16"
               },
               {
-                "id": 1198,
+                "id": 3916,
                 "name": "AkwaIbom",
-                "nameLocation": "787:8:7",
+                "nameLocation": "787:8:16",
                 "nodeType": "EnumValue",
-                "src": "787:8:7"
+                "src": "787:8:16"
               },
               {
-                "id": 1199,
+                "id": 3917,
                 "name": "Anambra",
-                "nameLocation": "806:7:7",
+                "nameLocation": "806:7:16",
                 "nodeType": "EnumValue",
-                "src": "806:7:7"
+                "src": "806:7:16"
               },
               {
-                "id": 1200,
+                "id": 3918,
                 "name": "Bauchi",
-                "nameLocation": "824:6:7",
+                "nameLocation": "824:6:16",
                 "nodeType": "EnumValue",
-                "src": "824:6:7"
+                "src": "824:6:16"
               },
               {
-                "id": 1201,
+                "id": 3919,
                 "name": "Bayelsa",
-                "nameLocation": "841:7:7",
+                "nameLocation": "841:7:16",
                 "nodeType": "EnumValue",
-                "src": "841:7:7"
+                "src": "841:7:16"
               },
               {
-                "id": 1202,
+                "id": 3920,
                 "name": "Benue",
-                "nameLocation": "859:5:7",
+                "nameLocation": "859:5:16",
                 "nodeType": "EnumValue",
-                "src": "859:5:7"
+                "src": "859:5:16"
               },
               {
-                "id": 1203,
+                "id": 3921,
                 "name": "Borno",
-                "nameLocation": "875:5:7",
+                "nameLocation": "875:5:16",
                 "nodeType": "EnumValue",
-                "src": "875:5:7"
+                "src": "875:5:16"
               },
               {
-                "id": 1204,
+                "id": 3922,
                 "name": "CrossRiver",
-                "nameLocation": "891:10:7",
+                "nameLocation": "891:10:16",
                 "nodeType": "EnumValue",
-                "src": "891:10:7"
+                "src": "891:10:16"
               },
               {
-                "id": 1205,
+                "id": 3923,
                 "name": "Delta",
-                "nameLocation": "912:5:7",
+                "nameLocation": "912:5:16",
                 "nodeType": "EnumValue",
-                "src": "912:5:7"
+                "src": "912:5:16"
               },
               {
-                "id": 1206,
+                "id": 3924,
                 "name": "Ebonyi",
-                "nameLocation": "928:6:7",
+                "nameLocation": "928:6:16",
                 "nodeType": "EnumValue",
-                "src": "928:6:7"
+                "src": "928:6:16"
               },
               {
-                "id": 1207,
+                "id": 3925,
                 "name": "Edo",
-                "nameLocation": "945:3:7",
+                "nameLocation": "945:3:16",
                 "nodeType": "EnumValue",
-                "src": "945:3:7"
+                "src": "945:3:16"
               },
               {
-                "id": 1208,
+                "id": 3926,
                 "name": "Ekiti",
-                "nameLocation": "959:5:7",
+                "nameLocation": "959:5:16",
                 "nodeType": "EnumValue",
-                "src": "959:5:7"
+                "src": "959:5:16"
               },
               {
-                "id": 1209,
+                "id": 3927,
                 "name": "Enugu",
-                "nameLocation": "975:5:7",
+                "nameLocation": "975:5:16",
                 "nodeType": "EnumValue",
-                "src": "975:5:7"
+                "src": "975:5:16"
               },
               {
-                "id": 1210,
+                "id": 3928,
                 "name": "Gombe",
-                "nameLocation": "991:5:7",
+                "nameLocation": "991:5:16",
                 "nodeType": "EnumValue",
-                "src": "991:5:7"
+                "src": "991:5:16"
               },
               {
-                "id": 1211,
+                "id": 3929,
                 "name": "Imo",
-                "nameLocation": "1007:3:7",
+                "nameLocation": "1007:3:16",
                 "nodeType": "EnumValue",
-                "src": "1007:3:7"
+                "src": "1007:3:16"
               },
               {
-                "id": 1212,
+                "id": 3930,
                 "name": "Jigawa",
-                "nameLocation": "1021:6:7",
+                "nameLocation": "1021:6:16",
                 "nodeType": "EnumValue",
-                "src": "1021:6:7"
+                "src": "1021:6:16"
               },
               {
-                "id": 1213,
+                "id": 3931,
                 "name": "Kaduna",
-                "nameLocation": "1038:6:7",
+                "nameLocation": "1038:6:16",
                 "nodeType": "EnumValue",
-                "src": "1038:6:7"
+                "src": "1038:6:16"
               },
               {
-                "id": 1214,
+                "id": 3932,
                 "name": "Kano",
-                "nameLocation": "1055:4:7",
+                "nameLocation": "1055:4:16",
                 "nodeType": "EnumValue",
-                "src": "1055:4:7"
+                "src": "1055:4:16"
               },
               {
-                "id": 1215,
+                "id": 3933,
                 "name": "Katsina",
-                "nameLocation": "1070:7:7",
+                "nameLocation": "1070:7:16",
                 "nodeType": "EnumValue",
-                "src": "1070:7:7"
+                "src": "1070:7:16"
               },
               {
-                "id": 1216,
+                "id": 3934,
                 "name": "Kebbi",
-                "nameLocation": "1088:5:7",
+                "nameLocation": "1088:5:16",
                 "nodeType": "EnumValue",
-                "src": "1088:5:7"
+                "src": "1088:5:16"
               },
               {
-                "id": 1217,
+                "id": 3935,
                 "name": "Kogi",
-                "nameLocation": "1104:4:7",
+                "nameLocation": "1104:4:16",
                 "nodeType": "EnumValue",
-                "src": "1104:4:7"
+                "src": "1104:4:16"
               },
               {
-                "id": 1218,
+                "id": 3936,
                 "name": "Kwara",
-                "nameLocation": "1119:5:7",
+                "nameLocation": "1119:5:16",
                 "nodeType": "EnumValue",
-                "src": "1119:5:7"
+                "src": "1119:5:16"
               },
               {
-                "id": 1219,
+                "id": 3937,
                 "name": "Lagos",
-                "nameLocation": "1135:5:7",
+                "nameLocation": "1135:5:16",
                 "nodeType": "EnumValue",
-                "src": "1135:5:7"
+                "src": "1135:5:16"
               },
               {
-                "id": 1220,
+                "id": 3938,
                 "name": "Nasarawa",
-                "nameLocation": "1151:8:7",
+                "nameLocation": "1151:8:16",
                 "nodeType": "EnumValue",
-                "src": "1151:8:7"
+                "src": "1151:8:16"
               },
               {
-                "id": 1221,
+                "id": 3939,
                 "name": "Niger",
-                "nameLocation": "1170:5:7",
+                "nameLocation": "1170:5:16",
                 "nodeType": "EnumValue",
-                "src": "1170:5:7"
+                "src": "1170:5:16"
               },
               {
-                "id": 1222,
+                "id": 3940,
                 "name": "Ogun",
-                "nameLocation": "1186:4:7",
+                "nameLocation": "1186:4:16",
                 "nodeType": "EnumValue",
-                "src": "1186:4:7"
+                "src": "1186:4:16"
               },
               {
-                "id": 1223,
+                "id": 3941,
                 "name": "Ondo",
-                "nameLocation": "1201:4:7",
+                "nameLocation": "1201:4:16",
                 "nodeType": "EnumValue",
-                "src": "1201:4:7"
+                "src": "1201:4:16"
               },
               {
-                "id": 1224,
+                "id": 3942,
                 "name": "Osun",
-                "nameLocation": "1216:4:7",
+                "nameLocation": "1216:4:16",
                 "nodeType": "EnumValue",
-                "src": "1216:4:7"
+                "src": "1216:4:16"
               },
               {
-                "id": 1225,
+                "id": 3943,
                 "name": "Oyo",
-                "nameLocation": "1231:3:7",
+                "nameLocation": "1231:3:16",
                 "nodeType": "EnumValue",
-                "src": "1231:3:7"
+                "src": "1231:3:16"
               },
               {
-                "id": 1226,
+                "id": 3944,
                 "name": "Plateau",
-                "nameLocation": "1245:7:7",
+                "nameLocation": "1245:7:16",
                 "nodeType": "EnumValue",
-                "src": "1245:7:7"
+                "src": "1245:7:16"
               },
               {
-                "id": 1227,
+                "id": 3945,
                 "name": "Rivers",
-                "nameLocation": "1263:6:7",
+                "nameLocation": "1263:6:16",
                 "nodeType": "EnumValue",
-                "src": "1263:6:7"
+                "src": "1263:6:16"
               },
               {
-                "id": 1228,
+                "id": 3946,
                 "name": "Sokoto",
-                "nameLocation": "1280:6:7",
+                "nameLocation": "1280:6:16",
                 "nodeType": "EnumValue",
-                "src": "1280:6:7"
+                "src": "1280:6:16"
               },
               {
-                "id": 1229,
+                "id": 3947,
                 "name": "Taraba",
-                "nameLocation": "1297:6:7",
+                "nameLocation": "1297:6:16",
                 "nodeType": "EnumValue",
-                "src": "1297:6:7"
+                "src": "1297:6:16"
               },
               {
-                "id": 1230,
+                "id": 3948,
                 "name": "Yobe",
-                "nameLocation": "1314:4:7",
+                "nameLocation": "1314:4:16",
                 "nodeType": "EnumValue",
-                "src": "1314:4:7"
+                "src": "1314:4:16"
               },
               {
-                "id": 1231,
+                "id": 3949,
                 "name": "Zamfara",
-                "nameLocation": "1329:7:7",
+                "nameLocation": "1329:7:16",
                 "nodeType": "EnumValue",
-                "src": "1329:7:7"
+                "src": "1329:7:16"
               }
             ],
             "name": "State",
-            "nameLocation": "737:5:7",
+            "nameLocation": "737:5:16",
             "nodeType": "EnumDefinition",
-            "src": "732:611:7"
+            "src": "732:611:16"
           }
         ],
-        "scope": 1234,
-        "src": "61:1285:7",
+        "scope": 3952,
+        "src": "61:1285:16",
         "usedErrors": [],
         "usedEvents": []
       }
     ],
-    "src": "33:1315:7"
+    "src": "33:1315:16"
   },
   "compiler": {
     "name": "solc",
@@ -939,7 +939,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-11-17T09:23:10.348Z",
+  "updatedAt": "2023-11-19T16:22:39.506Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

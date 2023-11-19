@@ -7,14 +7,15 @@ import {PollingLib} from "./libraries/PollingLib.sol";
 import {Context} from "@openzeppelin/contracts/utils/Context.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
-import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+
+import {VoteNft} from "./VoteNft.sol";
 
 /// @title I-Vote Core
 /// @author Arogundade Ibrahim
 /// @notice A simple replace for traditional elections
 contract VoteCore is IVoteCore, Context, Pausable, Ownable {
     // vote nft
-    IERC721 private _voteNft;
+    VoteNft private _voteNft;
 
     // Unique Id Trackers
     uint256 private _pollId;
@@ -81,7 +82,7 @@ contract VoteCore is IVoteCore, Context, Pausable, Ownable {
 
         // mint nft to voter --if-exists
         if (bytes(poll.nftUri).length != 0) {
-            // _voteNft.transferFrom(address, to, tokenId);;
+            _voteNft.mint(voterId, poll.nftUri);
         }
 
         emit VoteCasted(pollId, voterId, partyId);
@@ -193,6 +194,10 @@ contract VoteCore is IVoteCore, Context, Pausable, Ownable {
         _managers[managerId] = manager;
 
         emit ManagerCreated(managerId, manager.data, manager.state);
+    }
+
+    function setVoteNft(address voteNft) external {
+        _voteNft = VoteNft(voteNft);
     }
 
     // ============= Modifiers ============= //

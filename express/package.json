@@ -4,6 +4,9 @@
   "description": "I-Vote express server",
   "main": "index.js",
   "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
     "test": "test"
   },
   "author": "Arogundade Ibrahim",
