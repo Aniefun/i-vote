@@ -97,24 +97,28 @@ export class PollCreated__Params {
     this._event = event;
   }
 
+  get pollId(): BigInt {
+    return this._event.parameters[0].value.toBigInt();
+  }
+
   get data(): Bytes {
-    return this._event.parameters[0].value.toBytes();
+    return this._event.parameters[1].value.toBytes();
   }
 
   get endsAt(): BigInt {
-    return this._event.parameters[1].value.toBigInt();
-  }
-
-  get startAt(): BigInt {
     return this._event.parameters[2].value.toBigInt();
   }
 
-  get numOfVotes(): BigInt {
+  get startAt(): BigInt {
     return this._event.parameters[3].value.toBigInt();
   }
 
-  get units(): Array<BigInt> {
-    return this._event.parameters[4].value.toBigIntArray();
+  get numOfVotes(): BigInt {
+    return this._event.parameters[4].value.toBigInt();
+  }
+
+  get unit(): BigInt {
+    return this._event.parameters[5].value.toBigInt();
   }
 }
 
@@ -155,6 +159,36 @@ export class PollResumed__Params {
 
   get newEndAt(): BigInt {
     return this._event.parameters[1].value.toBigInt();
+  }
+}
+
+export class UnitCreated extends ethereum.Event {
+  get params(): UnitCreated__Params {
+    return new UnitCreated__Params(this);
+  }
+}
+
+export class UnitCreated__Params {
+  _event: UnitCreated;
+
+  constructor(event: UnitCreated) {
+    this._event = event;
+  }
+
+  get unitId(): BigInt {
+    return this._event.parameters[0].value.toBigInt();
+  }
+
+  get state(): i32 {
+    return this._event.parameters[1].value.toI32();
+  }
+
+  get localGovernment(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+
+  get numOfAccreditedVoters(): BigInt {
+    return this._event.parameters[3].value.toBigInt();
   }
 }
 
@@ -529,8 +563,8 @@ export class CreatePollCallPollStruct extends ethereum.Tuple {
     return this[3].toBigInt();
   }
 
-  get units(): Array<BigInt> {
-    return this[4].toBigIntArray();
+  get unit(): BigInt {
+    return this[4].toBigInt();
   }
 
   get nftUri(): string {
@@ -577,6 +611,52 @@ export class CreatePartyCall__Outputs {
 export class CreatePartyCallPartyStruct extends ethereum.Tuple {
   get data(): Bytes {
     return this[0].toBytes();
+  }
+}
+
+export class CreateUnitCall extends ethereum.Call {
+  get inputs(): CreateUnitCall__Inputs {
+    return new CreateUnitCall__Inputs(this);
+  }
+
+  get outputs(): CreateUnitCall__Outputs {
+    return new CreateUnitCall__Outputs(this);
+  }
+}
+
+export class CreateUnitCall__Inputs {
+  _call: CreateUnitCall;
+
+  constructor(call: CreateUnitCall) {
+    this._call = call;
+  }
+
+  get unit(): CreateUnitCallUnitStruct {
+    return changetype<CreateUnitCallUnitStruct>(
+      this._call.inputValues[0].value.toTuple()
+    );
+  }
+}
+
+export class CreateUnitCall__Outputs {
+  _call: CreateUnitCall;
+
+  constructor(call: CreateUnitCall) {
+    this._call = call;
+  }
+}
+
+export class CreateUnitCallUnitStruct extends ethereum.Tuple {
+  get state(): i32 {
+    return this[0].toI32();
+  }
+
+  get localGovernment(): BigInt {
+    return this[1].toBigInt();
+  }
+
+  get numOfAccreditedVoters(): BigInt {
+    return this[2].toBigInt();
   }
 }
 

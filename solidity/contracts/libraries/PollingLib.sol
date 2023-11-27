@@ -18,8 +18,7 @@ library PollingLib {
         State state;
     }
 
-    struct Uint {
-        uint256 id;
+    struct Unit {
         State state;
         uint256 localGovernment;
         uint256 numOfAccreditedVoters;
@@ -30,7 +29,7 @@ library PollingLib {
         uint256 endAt;
         uint256 startAt;
         uint256 numOfVotes;
-        uint256[] units;
+        uint256 unit;
         string nftUri;
     }
 

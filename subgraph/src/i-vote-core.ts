@@ -1,3 +1,4 @@
+import { BigInt } from "@graphprotocol/graph-ts";
 import {
   AgentCreated as AgentCreatedEvent,
   ManagerCreated as ManagerCreatedEvent,
@@ -5,164 +6,220 @@ import {
   PollCreated as PollCreatedEvent,
   PollEnded as PollEndedEvent,
   PollResumed as PollResumedEvent,
+  UnitCreated as UnitCreatedEvent,
   VoteCasted as VoteCastedEvent,
   VoterCreated as VoterCreatedEvent,
   VoterSuspended as VoterSuspendedEvent,
   VoterUnSuspended as VoterUnSuspendedEvent
-} from "../generated/IVoteCore/IVoteCore"
+} from "../generated/IVoteCore/IVoteCore";
 import {
-  AgentCreated,
-  ManagerCreated,
-  PartyCreated,
-  PollCreated,
-  PollEnded,
-  PollResumed,
-  VoteCasted,
-  VoterCreated,
-  VoterSuspended,
-  VoterUnSuspended
-} from "../generated/schema"
+  Agent,
+  Manager,
+  Party,
+  Poll,
+  Unit,
+  Vote,
+  Voter
+} from "../generated/schema";
 
 export function handleAgentCreated(event: AgentCreatedEvent): void {
-  let entity = new AgentCreated(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.agentId = event.params.agentId
-  entity.data = event.params.data
-  entity.unit = event.params.unit
+  let entity = Agent.load(
+    event.params.agentId.toHexString()
+  );
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  if (!entity) {
+    entity = new Agent(
+      event.params.agentId.toHexString()
+    );
+  }
 
-  entity.save()
+  entity.agentId = event.params.agentId;
+  entity.data = event.params.data;
+  entity.unit = event.params.unit;
+
+  entity.blockNumber = event.block.number;
+  entity.blockTimestamp = event.block.timestamp;
+  entity.transactionHash = event.transaction.hash;
+
+  entity.save();
 }
 
 export function handleManagerCreated(event: ManagerCreatedEvent): void {
-  let entity = new ManagerCreated(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.managerId = event.params.managerId
-  entity.data = event.params.data
-  entity.state = event.params.state
+  let entity = Manager.load(
+    event.params.managerId.toHexString()
+  );
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  if (!entity) {
+    entity = new Manager(
+      event.params.managerId.toHexString()
+    );
+  }
 
-  entity.save()
+  entity.managerId = event.params.managerId;
+  entity.data = event.params.data;
+  entity.state = event.params.state;
+
+  entity.blockNumber = event.block.number;
+  entity.blockTimestamp = event.block.timestamp;
+  entity.transactionHash = event.transaction.hash;
+
+  entity.save();
 }
 
 export function handlePartyCreated(event: PartyCreatedEvent): void {
-  let entity = new PartyCreated(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.partyId = event.params.partyId
-  entity.data = event.params.data
+  let entity = Party.load(
+    event.params.partyId.toHexString()
+  );
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  if (!entity) {
+    entity = new Party(
+      event.params.partyId.toHexString()
+    );
+  }
 
-  entity.save()
+  entity.partyId = event.params.partyId;
+  entity.data = event.params.data;
+
+  entity.blockNumber = event.block.number;
+  entity.blockTimestamp = event.block.timestamp;
+  entity.transactionHash = event.transaction.hash;
+
+  entity.save();
 }
 
 export function handlePollCreated(event: PollCreatedEvent): void {
-  let entity = new PollCreated(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.data = event.params.data
-  entity.endsAt = event.params.endsAt
-  entity.startAt = event.params.startAt
-  entity.numOfVotes = event.params.numOfVotes
-  entity.units = event.params.units
+  let entity = Poll.load(
+    event.params.pollId.toHexString()
+  );
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  if (!entity) {
+    entity = new Poll(
+      event.params.pollId.toHexString()
+    );
+  }
 
-  entity.save()
+  entity.pollId = event.params.pollId;
+  entity.data = event.params.data;
+  entity.endsAt = event.params.endsAt;
+  entity.startAt = event.params.startAt;
+  entity.numOfVotes = event.params.numOfVotes;
+  entity.unit = event.params.unit;
+
+  entity.blockNumber = event.block.number;
+  entity.blockTimestamp = event.block.timestamp;
+  entity.transactionHash = event.transaction.hash;
+
+  entity.save();
 }
 
 export function handlePollEnded(event: PollEndedEvent): void {
-  let entity = new PollEnded(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.pollId = event.params.pollId
+  let entity = Poll.load(
+    event.params.pollId.toHexString()
+  );
+  if (!entity) return;
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  entity.endsAt = event.block.timestamp;
 
-  entity.save()
+  entity.save();
 }
 
 export function handlePollResumed(event: PollResumedEvent): void {
-  let entity = new PollResumed(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.pollId = event.params.pollId
-  entity.newEndAt = event.params.newEndAt
+  let entity = Poll.load(
+    event.params.pollId.toHexString()
+  );
+  if (!entity) return;
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  entity.endsAt = event.params.newEndAt;
 
-  entity.save()
+  entity.save();
 }
 
 export function handleVoteCasted(event: VoteCastedEvent): void {
-  let entity = new VoteCasted(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.pollId = event.params.pollId
-  entity.voterId = event.params.voterId
-  entity.partyId = event.params.partyId
+  let entity = Vote.load(
+    event.params.voterId.toHexString() + '_' + event.params.pollId.toHexString()
+  );
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  if (!entity) {
+    entity = new Vote(
+      event.params.voterId.toHexString() + '_' + event.params.pollId.toHexString()
+    );
+  }
 
-  entity.save()
+  entity.pollId = event.params.pollId;
+  entity.voterId = event.params.voterId;
+  entity.partyId = event.params.partyId;
+  entity.poll = event.params.pollId.toHexString();
+
+  entity.blockNumber = event.block.number;
+  entity.blockTimestamp = event.block.timestamp;
+  entity.transactionHash = event.transaction.hash;
+
+  entity.save();
 }
 
 export function handleVoterCreated(event: VoterCreatedEvent): void {
-  let entity = new VoterCreated(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.voterId = event.params.voterId
-  entity.data = event.params.data
-  entity.unit = event.params.unit
+  let entity = Voter.load(
+    event.params.voterId.toHexString()
+  );
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  if (!entity) {
+    entity = new Voter(
+      event.params.voterId.toHexString()
+    );
+  };
 
-  entity.save()
+  entity.voterId = event.params.voterId;
+  entity.data = event.params.data;
+  entity.unit = event.params.unit;
+
+  entity.blockNumber = event.block.number;
+  entity.blockTimestamp = event.block.timestamp;
+  entity.transactionHash = event.transaction.hash;
+
+  entity.save();
 }
 
 export function handleVoterSuspended(event: VoterSuspendedEvent): void {
-  let entity = new VoterSuspended(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.voterId = event.params.voterId
+  let entity = Voter.load(
+    event.params.voterId.toHexString()
+  );
+  if (!entity) return;
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  entity.suspended = BigInt.fromU64(1);
 
-  entity.save()
+  entity.save();
 }
 
 export function handleVoterUnSuspended(event: VoterUnSuspendedEvent): void {
-  let entity = new VoterUnSuspended(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.voterId = event.params.voterId
+  let entity = Voter.load(
+    event.params.voterId.toHexString()
+  );
+  if (!entity) return;
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  entity.suspended = BigInt.fromU64(0);
 
-  entity.save()
+  entity.save();
+}
+
+export function handleUnitCreated(event: UnitCreatedEvent): void {
+  let entity = Unit.load(
+    event.params.unitId.toHexString()
+  );
+
+  if (!entity) {
+    entity = new Unit(
+      event.params.unitId.toHexString()
+    );
+  };
+
+  entity.unitId = event.params.unitId;
+  entity.state = event.params.state;
+  entity.localGovernment = event.params.localGovernment;
+  entity.numOfAccreditedVoters = event.params.numOfAccreditedVoters;
+
+  entity.blockNumber = event.block.number;
+  entity.blockTimestamp = event.block.timestamp;
+  entity.transactionHash = event.transaction.hash;
+
+  entity.save();
 }

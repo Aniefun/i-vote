@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: IVoteCore
@@ -27,7 +27,7 @@ dataSources:
         - VoterUnSuspended
       abis:
         - name: IVoteCore
-          file: ./abis/IVoteCore.json
+          file: IVoteCore\abis\IVoteCore.json
       eventHandlers:
         - event: AgentCreated(address,bytes,uint256)
           handler: handleAgentCreated
@@ -51,4 +51,4 @@ dataSources:
           handler: handleVoterSuspended
         - event: VoterUnSuspended(address)
           handler: handleVoterUnSuspended
-      file: ./src/i-vote-core.ts
+      file: IVoteCore\IVoteCore.wasm

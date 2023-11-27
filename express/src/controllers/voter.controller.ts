@@ -2,11 +2,11 @@ import Web3 from "web3";
 import { Voter } from "../interfaces/index";
 import { AppResponse } from './../interfaces/index';
 import { readFileSync, writeFileSync, mkdirSync } from "fs";
-const VoteCore = require('../VoteCore.json');
+
+const VoteCore = require('../contracts/VoteCore.json');
+const voteCoreId: string = "";
 
 const web3 = new Web3('https://rpc.ankr.com/polygon_mumbai');
-
-const voteCoreId: string = "";
 
 const accountFileName = "/account.json";
 

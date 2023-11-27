@@ -19,9 +19,10 @@ contract VoteCore is IVoteCore, Context, Pausable, Ownable {
 
     // Unique Id Trackers
     uint256 private _pollId;
+    uint256 private _unitId;
 
     // Polling Units: Unit Unique Id => Unit object
-    mapping(uint256 => PollingLib.Uint) private _units;
+    mapping(uint256 => PollingLib.Unit) private _units;
 
     // Polls: Poll Unique Id => Poll object
     mapping(uint256 => PollingLib.Poll) private _polls;
@@ -64,14 +65,7 @@ contract VoteCore is IVoteCore, Context, Pausable, Ownable {
         require(_votes[pollId][voterId] == uint256(0), "Already casted vote");
 
         // check voter uint is in the poll units
-        bool isInUint = false;
-        for (uint256 index = 0; index < poll.units.length; index++) {
-            if (poll.units[index] == voter.unit) {
-                isInUint = true;
-                break;
-            }
-        }
-        require(isInUint, "Voter unit not in the poll units");
+        require(voter.unit == poll.unit, "Voter is not in this unit");
 
         // check party exists
         require(isParty(partyId), "Party does not exist");
@@ -120,6 +114,26 @@ contract VoteCore is IVoteCore, Context, Pausable, Ownable {
         emit VoterCreated(voterId, voter.data, voter.unit);
     }
 
+    function createPoll(
+        PollingLib.Poll memory poll
+    ) external override onlyAgent whenNotPaused {
+        _polls[_pollId] = poll;
+
+        // increment Poll Id trackers
+        _pollId++;
+
+        require(_agents[_msgSender()].unit == poll.unit);
+
+        emit PollCreated(
+            _pollId,
+            poll.data,
+            poll.endAt,
+            poll.startAt,
+            poll.numOfVotes,
+            poll.unit
+        );
+    }
+
     function suspendVoter(address voter) external override onlyAgent {
         _voters[voter].suspended = true;
 
@@ -134,20 +148,19 @@ contract VoteCore is IVoteCore, Context, Pausable, Ownable {
 
     // ============= Managers Functions ============= //
 
-    function createPoll(
-        PollingLib.Poll memory poll
+    function createUnit(
+        PollingLib.Unit memory unit
     ) external override onlyManager whenNotPaused {
-        _polls[_pollId] = poll;
+        _units[_unitId] = unit;
 
-        // increment Poll Id trackers
-        _pollId++;
+        // increment Unit Id trackers
+        _unitId++;
 
-        emit PollCreated(
-            poll.data,
-            poll.endAt,
-            poll.startAt,
-            poll.numOfVotes,
-            poll.units
+        emit UnitCreated(
+            _unitId,
+            unit.state,
+            unit.localGovernment,
+            unit.numOfAccreditedVoters
         );
     }
 

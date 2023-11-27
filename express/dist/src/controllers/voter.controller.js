@@ -15,9 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.VoterController = void 0;
 const web3_1 = __importDefault(require("web3"));
 const fs_1 = require("fs");
-const VoteCore = require('../VoteCore.json');
-const web3 = new web3_1.default('https://rpc.ankr.com/polygon_mumbai');
+const VoteCore = require('../contracts/VoteCore.json');
 const voteCoreId = "";
+const web3 = new web3_1.default('https://rpc.ankr.com/polygon_mumbai');
 const accountFileName = "/account.json";
 const voterDir = (phoneNumber) => {
     return `${__dirname}/voters/${phoneNumber}`;

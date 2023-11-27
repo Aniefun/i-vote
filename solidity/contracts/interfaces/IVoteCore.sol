@@ -15,11 +15,12 @@ interface IVoteCore {
     event VoterUnSuspended(address voterId);
 
     event PollCreated(
+        uint256 pollId,
         bytes data,
         uint256 endsAt,
         uint256 startAt,
         uint256 numOfVotes,
-        uint256[] units
+        uint256 unit
     );
 
     event PartyCreated(uint256 partyId, bytes data);
@@ -31,6 +32,13 @@ interface IVoteCore {
     event AgentCreated(address agentId, bytes data, uint256 unit);
 
     event ManagerCreated(address managerId, bytes data, PollingLib.State state);
+
+    event UnitCreated(
+        uint256 unitId,
+        PollingLib.State state,
+        uint256 localGovernment,
+        uint256 numOfAccreditedVoters
+    );
 
     // ============= Functions ============= //
 
@@ -63,6 +71,8 @@ interface IVoteCore {
         PollingLib.Party memory party,
         uint256 partyId
     ) external;
+
+    function createUnit(PollingLib.Unit memory unit) external;
 
     function endPoll(uint256 pollId) external;
 
