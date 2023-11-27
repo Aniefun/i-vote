@@ -58,8 +58,8 @@ contract VoteCore is IVoteCore, Context, Pausable, Ownable {
         require(!voter.suspended, "Voter is suspended");
 
         // check poll duration
-        require(poll.endAt < block.timestamp, "Poll has ended");
-        require(poll.startAt >= block.timestamp, "Poll has not started");
+        require(block.timestamp >= poll.startAt, "Poll has not started");
+        require(block.timestamp < poll.endAt, "Poll has ended");
 
         // check voter entry
         require(_votes[pollId][voterId] == uint256(0), "Already casted vote");
@@ -117,10 +117,10 @@ contract VoteCore is IVoteCore, Context, Pausable, Ownable {
     function createPoll(
         PollingLib.Poll memory poll
     ) external override onlyAgent whenNotPaused {
-        _polls[_pollId] = poll;
-
         // increment Poll Id trackers
         _pollId++;
+
+        _polls[_pollId] = poll;
 
         require(_agents[_msgSender()].unit == poll.unit);
 
@@ -151,10 +151,10 @@ contract VoteCore is IVoteCore, Context, Pausable, Ownable {
     function createUnit(
         PollingLib.Unit memory unit
     ) external override onlyManager whenNotPaused {
-        _units[_unitId] = unit;
-
         // increment Unit Id trackers
         _unitId++;
+
+        _units[_unitId] = unit;
 
         emit UnitCreated(
             _unitId,

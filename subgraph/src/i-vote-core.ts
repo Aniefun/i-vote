@@ -171,6 +171,7 @@ export function handleVoterCreated(event: VoterCreatedEvent): void {
   entity.voterId = event.params.voterId;
   entity.data = event.params.data;
   entity.unit = event.params.unit;
+  entity.suspended = BigInt.fromU64(0);
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;

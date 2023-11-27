@@ -6,7 +6,7 @@ dataSources:
     name: IVoteCore
     network: mumbai
     source:
-      address: "0xb0D1E05210A7e142109c9adB216c73E0418FB066"
+      address: "0x56E33548BDA320A8E92E6EeDd537826d708fEfBC"
       abi: IVoteCore
       startBlock: 42821349
     mapping:
