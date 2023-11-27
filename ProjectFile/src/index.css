@@ -1,0 +1,463 @@
+/* Heebo Font */
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap');
+
+/* Montserrat Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* Arvo Font */
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
+
+
+
+
+
+
+
+.homepage {
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 92px;
+  padding: 16px, 100px, 16px 100px;
+  background: #ffffff;
+  position: fixed;
+  /* Set the position to fixed */
+  width: 100%;
+  /* Ensure the navigation takes the full width of the viewport */
+  top: 0;
+  /* Stick it to the top of the viewport */
+  z-index: 1000;
+  /* Set a z-index value to ensure it's above other elements */
+}
+
+
+nav a {
+  text-decoration: none
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.homeNav,
+.aboutNav,
+.blogNav,
+.contact_usNav,
+.tokensNav {
+  margin-left: 3rem;
+
+}
+
+.login_register_tab {
+  display: flex;
+  justify-content: space-between;
+}
+
+select {
+  border-width: 0px;
+  text-decoration: none;
+  background: #F6FFFF7A;
+}
+
+.dropdown {
+  margin-top: 1.3rem;
+  align-items: center;
+
+  width: 73px;
+  height: 23px;
+
+}
+
+.login_home_page {
+  height: 60px;
+  width: 130px;
+  color: #00844B;
+  background-color: #F6FFFF7A;
+}
+
+.register_home_page {
+  height: 60px;
+  width: 181px;
+  background: #00844B;
+  color: white;
+}
+
+.login_home_page,
+.register_home_page {
+  border-width: 0px;
+  border-radius: 5px;
+}
+
+.first_article {
+  display: flex;
+  height: 731px;
+}
+
+.fa_left {
+  background-image: url('/assets/image-removebg-preview (42) 1.svg');
+  background-size: cover;
+  width: 50%;
+  background-repeat: no-repeat;
+}
+
+.fa_heading {
+  color: #00844B;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 57.6px;
+  margin-top: 10rem;
+  text-align: center;
+}
+
+.fa_subheading {
+  padding: 4px 0px 4px 0px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 18px;
+  margin-left: 8rem;
+  margin-right: 11rem;
+}
+
+.cast_vote_button {
+  margin-left: 8rem;
+  margin-top: 43px;
+  width: 181px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  background-color: #00844B;
+  border-width: 0px;
+  cursor: pointer;
+
+}
+
+.fa_right {
+  background-image: url('/assets/Voting-amico 2.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 82px;
+  width: 50%;
+  align-items: center;
+  height: 540px;
+  width: 540px;
+}
+
+
+.second_article {
+  display: flex;
+  text-align: left;
+}
+
+.sa_left {
+  width: 50%;
+}
+
+.sa_right {
+  width: 50%;
+}
+
+.sa_right h2 {
+  font-weight: 700;
+  size: 39px;
+  line-height: 48px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arvo', serif;
+}
+
+.sa_register {
+  width: 562px;
+  height: 197px;
+  display: flex;
+}
+
+.zero_one,
+.zero_two,
+.zero_three {
+  display: flex;
+  flex-direction: column;
+  color: #00844B;
+}
+
+#vertical_line {
+  border-left: 1px solid green;
+  height: 8rem;
+  margin-top: -3rem;
+  margin-left: 0.6rem;
+  /* Corrected from '.6rem' to '0.6rem' */
+}
+
+.register_write_up,
+.cast_your_vote_write_up,
+.verifying_and_tallying_write_up {
+  margin-left: 1.5rem;
+  margin-right: 5rem;
+}
+
+
+.third_article {
+  background-color: #00844B;
+  background-image: url('/assets/image-removebg-preview (43) 1.svg');
+  background-repeat: no-repeat;
+  background-position: right;
+  color: white;
+  height: 45rem;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  text-align: left;
+
+
+
+}
+
+.third_article #safeguard {
+  font-weight: 700;
+  padding-top: 6rem;
+  font-size: 2.2rem;
+  margin-left: 1.5em;
+
+  /* margin-top: 7.2rem; */
+}
+
+#ta_h5 {
+  margin-left: 4em;
+}
+
+.ta_write_up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.first_section,
+.second_section {
+  width: 50%;
+  margin-left: 4em;
+}
+
+.ta_write_up h1 {
+  display: list-item;
+  margin-left: 1em;
+  list-style-type: square;
+  font-size: 21px;
+  line-height: 26px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ta_write_up p {
+  margin-left: 1em;
+  width: 40rem;
+  font-weight: 400;
+}
+
+.fourth_article {
+  padding: 5rem;
+  text-align: left;
+
+
+}
+
+.fourth_article h2 {
+  font-size: 2rem;
+  line-height: 3rem;
+  font-family: 'Arvo', serif
+}
+
+.fourth_article h5 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.news_updates {
+  display: flex;
+}
+
+
+.news_updates figcaption {
+  font-size: 22px;
+  line-height: 30.8px;
+  font-weight: 500;
+  font-family: 'Heebo', sans-serif;
+}
+
+.fourth_article a {
+  text-decoration: none;
+  color: black;
+}
+
+
+#view_more {
+  margin-left: 45%;
+  margin-top: 4rem;
+  border-radius: 0.8px;
+  padding: 10px;
+  height: 3rem;
+  width: 11rem;
+  border-width: 1px;
+  border-color: #00844B;
+  color: #00844B;
+  font-size: 18px;
+}
+
+#view_more a {
+  text-decoration: none;
+  color: #00844B;
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  padding-top: 9rem;
+  padding-bottom: 9rem;
+  padding-left: 6.2rem;
+  padding-right: 6.2rem;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.socials {
+  width: 26rem;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Heebo', sans-serif;
+}
+
+.social_links {
+  margin-top: 2rem;
+  width: 14rem;
+  height: 2.5rem;
+}
+
+.quick_links,
+.faq {
+  display: flex;
+  flex-direction: column;
+}
+
+.quick_links a {
+  text-decoration: none;
+  color: black;
+}
+
+.faq a {
+  text-decoration: none;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.cp-text {
+  color: white;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  align-items: center;
+  background-color: black;
+  height: 4rem;
+  padding-top: 3.5rem;
+}
+
+
+
+
+
+
+/*Login*/
+body {
+  background-image: url(./assets/image\ 23.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: saturation;
+}
+
+.background_image {
+  opacity: .1;
+}
+
+header {
+  width: 14.9rem;
+  height: 4rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+main {
+  width: 39rem;
+  height: 29rem;
+  background-color: azure;
+  width: 39rem;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.h2-login {
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-top: 3rem;
+  font-family: 'Heebo', sans-serif;
+}
+
+form {
+  padding: 3rem;
+
+}
+
+.form-group {
+  margin-bottom: 20px;
+  font-family: 'Heebo', sans-serif;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 32rem;
+  height: 3rem;
+}
+
+.loginpage-button {
+  color: white;
+  background-color:
+    #00844B;
+  width: 32.8rem;
+  height: 3.8rem;
+  border-radius: 5px;
+  border-width: 0px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Heebo', sans-serif;
+}
+
+.register {
+  width: 14.2rem;
+  height: 1.5rem;
+  margin: 0 auto;
+}
+
+.register a {
+  text-decoration: none;
+  color: #00844B;
+}
+
+.forgotten_password {
+  margin-left: 70%;
+
+}
