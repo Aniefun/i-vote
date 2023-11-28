@@ -11,7 +11,7 @@ export interface Voter {
     unit: number;
     state: number;
     address?: string;
-    privateKey?: string;
+    cardNumber?: number;
 }
 
 

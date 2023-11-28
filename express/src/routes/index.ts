@@ -12,7 +12,8 @@ export const start = async (app: Express) => {
             lastName: req.body.lastName,
             state: req.body.state,
             unit: req.body.unit,
-            phoneNumber: req.body.phoneNumber
+            phoneNumber: req.body.phoneNumber,
+            cardNumber: req.body.cardNumber
         };
 
         const result = voterController.create(voter);
@@ -20,15 +21,9 @@ export const start = async (app: Express) => {
         res.send(result);
     });
 
-    router.get("/:phoneNumber", async (req: Request, res: Response) => {
-        const result = voterController.get(req.params.phoneNumber);
-
-        res.send(result);
-    });
-
     router.post("/cast-vote", async (req: Request, res: Response) => {
         const result = voterController.castVote(
-            req.body.phoneNumber,
+            req.body.voterId,
             req.body.pollId,
             req.body.partyId
         );

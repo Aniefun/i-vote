@@ -6,7 +6,7 @@ dataSources:
     name: IVoteCore
     network: mumbai
     source:
-      address: "0x56E33548BDA320A8E92E6EeDd537826d708fEfBC"
+      address: "0x417eCeE8E303F05E9a937513091f1a20296574d5"
       abi: IVoteCore
       startBlock: 42821349
     mapping:
@@ -45,7 +45,7 @@ dataSources:
           handler: handlePollResumed
         - event: VoteCasted(uint256,address,uint256)
           handler: handleVoteCasted
-        - event: VoterCreated(address,bytes,uint256)
+        - event: VoterCreated(address,bytes,uint256,uint256)
           handler: handleVoterCreated
         - event: VoterSuspended(address)
           handler: handleVoterSuspended

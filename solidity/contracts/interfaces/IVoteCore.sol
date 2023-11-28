@@ -8,7 +8,12 @@ interface IVoteCore {
 
     event VoteCasted(uint256 pollId, address voterId, uint256 partyId);
 
-    event VoterCreated(address voterId, bytes data, uint256 unit);
+    event VoterCreated(
+        address voterId,
+        bytes data,
+        uint256 unit,
+        uint256 cardNumber
+    );
 
     event VoterSuspended(address voterId);
 
@@ -58,7 +63,8 @@ interface IVoteCore {
 
     function createVoter(
         PollingLib.Voter memory voter,
-        address voterId
+        address voterId,
+        uint256 cardNumber
     ) external;
 
     function suspendVoter(address voter) external;

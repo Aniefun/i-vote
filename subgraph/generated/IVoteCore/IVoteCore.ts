@@ -242,6 +242,10 @@ export class VoterCreated__Params {
   get unit(): BigInt {
     return this._event.parameters[2].value.toBigInt();
   }
+
+  get cardNumber(): BigInt {
+    return this._event.parameters[3].value.toBigInt();
+  }
 }
 
 export class VoterSuspended extends ethereum.Event {
@@ -425,6 +429,10 @@ export class CreateVoterCall__Inputs {
 
   get voterId(): Address {
     return this._call.inputValues[1].value.toAddress();
+  }
+
+  get cardNumber(): BigInt {
+    return this._call.inputValues[2].value.toBigInt();
   }
 }
 

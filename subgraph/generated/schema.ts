@@ -735,6 +735,19 @@ export class Voter extends Entity {
     this.set("suspended", Value.fromBigInt(value));
   }
 
+  get cardNumber(): BigInt {
+    let value = this.get("cardNumber");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set cardNumber(value: BigInt) {
+    this.set("cardNumber", Value.fromBigInt(value));
+  }
+
   get blockNumber(): BigInt {
     let value = this.get("blockNumber");
     if (!value || value.kind == ValueKind.NULL) {

@@ -58,6 +58,7 @@ type Voter @entity(immutable: false) {
   data: Bytes! # bytes
   unit: BigInt! # uint256
   suspended: BigInt! #uint256
+  cardNumber: BigInt! #uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

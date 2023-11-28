@@ -21,17 +21,14 @@ const start = (app) => __awaiter(void 0, void 0, void 0, function* () {
             lastName: req.body.lastName,
             state: req.body.state,
             unit: req.body.unit,
-            phoneNumber: req.body.phoneNumber
+            phoneNumber: req.body.phoneNumber,
+            cardNumber: req.body.cardNumber
         };
         const result = voterController.create(voter);
         res.send(result);
     }));
-    router.get("/:phoneNumber", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const result = voterController.get(req.params.phoneNumber);
-        res.send(result);
-    }));
     router.post("/cast-vote", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const result = voterController.castVote(req.body.phoneNumber, req.body.pollId, req.body.partyId);
+        const result = voterController.castVote(req.body.voterId, req.body.pollId, req.body.partyId);
         res.send(result);
     }));
     app.use("/voters", router);

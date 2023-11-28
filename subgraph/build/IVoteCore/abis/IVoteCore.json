@@ -219,6 +219,12 @@
         "internalType": "uint256",
         "name": "unit",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "cardNumber",
+        "type": "uint256"
       }
     ],
     "name": "VoterCreated",
@@ -382,6 +388,11 @@
         "internalType": "address",
         "name": "voterId",
         "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "cardNumber",
+        "type": "uint256"
       }
     ],
     "name": "createVoter",

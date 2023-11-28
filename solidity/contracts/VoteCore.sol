@@ -107,11 +107,12 @@ contract VoteCore is IVoteCore, Context, Pausable, Ownable {
 
     function createVoter(
         PollingLib.Voter memory voter,
-        address voterId
+        address voterId,
+        uint256 cardNumber
     ) external override onlyAgent {
         _voters[voterId] = voter;
 
-        emit VoterCreated(voterId, voter.data, voter.unit);
+        emit VoterCreated(voterId, voter.data, voter.unit, cardNumber);
     }
 
     function createPoll(

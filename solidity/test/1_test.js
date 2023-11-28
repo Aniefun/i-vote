@@ -135,9 +135,9 @@ contract('Group 2', async accounts => {
             suspended: false,
             numOfVotes: 0,
             unit: 1
-        }
+        }, cardNumber = 12345678901;
 
-        const trx = await voteCore.createVoter(voter, accounts[1])
+        const trx = await voteCore.createVoter(voter, accounts[1], cardNumber)
 
         console.log(trx.tx);
     })

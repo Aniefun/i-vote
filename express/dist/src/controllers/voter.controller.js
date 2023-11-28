@@ -14,51 +14,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VoterController = void 0;
 const web3_1 = __importDefault(require("web3"));
-const fs_1 = require("fs");
 const VoteCore = require('../contracts/VoteCore.json');
-const voteCoreId = "";
+const voteCoreId = VoteCore.networks[80001].address;
 const web3 = new web3_1.default('https://rpc.ankr.com/polygon_mumbai');
-const accountFileName = "/account.json";
-const voterDir = (phoneNumber) => {
-    return `${__dirname}/voters/${phoneNumber}`;
-};
 // Signing Key
 const handlerEvmKey = process.env.EVM_PRIVATE_KEY;
+const voteCore = new web3.eth.Contract(VoteCore.abi, voteCoreId);
+const signer = web3.eth.accounts.privateKeyToAccount(handlerEvmKey);
+web3.eth.accounts.wallet.add(signer);
 class VoterController {
-    create(voter) {
-        if (this.readVoter(voter.phoneNumber)) {
-            return { status: false, message: "Voter already exists" };
-        }
-        const wallet = web3.eth.accounts.create();
-        // create wallet for this voter
-        voter.address = wallet.address;
-        voter.privateKey = wallet.privateKey;
-        this.writeVoter(voter);
-        return { status: true };
-    }
-    get(phoneNumber) {
-        const voter = this.readVoter(phoneNumber);
-        if (!voter) {
-            return { status: false, message: "Voter not found" };
-        }
-        return { status: true, data: voter };
-    }
-    ;
-    castVote(phoneNumber, pollId, partyId) {
+    writeVoter(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            const voter = this.readVoter(phoneNumber);
-            if (!voter) {
-                return { status: false, message: "Voter not found" };
-            }
-            const voteCore = new web3.eth.Contract(VoteCore.abi, voteCoreId);
-            const signer = web3.eth.accounts.privateKeyToAccount(handlerEvmKey);
-            web3.eth.accounts.wallet.add(signer);
             try {
-                const gas = yield voteCore.methods.castVote(pollId, voter.address, partyId).estimateGas({ from: signer.address });
+                const voter = {
+                    data: web3_1.default.utils.stringToHex(JSON.stringify(data)),
+                    suspended: false,
+                    numOfVotes: 0,
+                    unit: data.unit
+                };
+                const gas = yield voteCore.methods.createVoter(voter, data.address).estimateGas({ from: signer.address });
                 console.log('Gas: ', gas);
                 const gasPrice = yield web3.eth.getGasPrice();
                 console.log('Gas Price: ', gasPrice);
-                const { transactionHash } = yield voteCore.methods.castVote(pollId, voter.address, partyId).send({
+                const { transactionHash } = yield voteCore.methods.createVoter(voter, data.address).send({
                     from: signer.address,
                     gasPrice: gasPrice,
                     gas: gas
@@ -70,27 +48,31 @@ class VoterController {
             }
         });
     }
-    readVoter(phoneNumber) {
-        try {
-            (0, fs_1.mkdirSync)(voterDir(phoneNumber), { recursive: true });
-            const content = (0, fs_1.readFileSync)(voterDir(phoneNumber) + accountFileName);
-            return JSON.parse(content.toString());
-        }
-        catch (error) {
-            console.error(`Read Error: ${error}`);
-            return null;
-        }
+    create(voter) {
+        const wallet = web3.eth.accounts.create();
+        // create wallet for this voter
+        voter.address = wallet.address;
+        this.writeVoter(voter);
+        return { status: true };
     }
-    writeVoter(voter) {
-        try {
-            (0, fs_1.mkdirSync)(voterDir(voter.phoneNumber), { recursive: true });
-            (0, fs_1.writeFileSync)(voterDir(voter.phoneNumber) + accountFileName, JSON.stringify(voter));
-            return voter;
-        }
-        catch (error) {
-            console.error(`Write Error: ${error}`);
-            return null;
-        }
+    castVote(voterId, pollId, partyId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const gas = yield voteCore.methods.castVote(pollId, voterId, partyId).estimateGas({ from: signer.address });
+                console.log('Gas: ', gas);
+                const gasPrice = yield web3.eth.getGasPrice();
+                console.log('Gas Price: ', gasPrice);
+                const { transactionHash } = yield voteCore.methods.castVote(pollId, voterId, partyId).send({
+                    from: signer.address,
+                    gasPrice: gasPrice,
+                    gas: gas
+                });
+                return { status: true, message: transactionHash };
+            }
+            catch (error) {
+                return { status: false, message: "Transaction failed" };
+            }
+        });
     }
 }
 exports.VoterController = VoterController;
