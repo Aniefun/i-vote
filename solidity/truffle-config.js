@@ -12,7 +12,7 @@ module.exports = {
 
   networks: {
     mumbai: {
-      provider: () => new HDWalletProvider(MNEMONIC, 'https://polygon-testnet.public.blastapi.io'),
+      provider: () => new HDWalletProvider(MNEMONIC, 'https://rpc.ankr.com/polygon_mumbai'),
       network_id: 80001,
       confirmations: 2,
       timeoutBlocks: 9999999,
