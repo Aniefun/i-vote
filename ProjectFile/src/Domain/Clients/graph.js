@@ -1,4 +1,4 @@
-import axios from 'axios'
+// import axios from 'axios'
 
 const Graph = {
     baseUrl: "https://api.studio.thegraph.com/query/59422/ivote/version/latest",
