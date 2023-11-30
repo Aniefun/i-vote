@@ -42,6 +42,17 @@ const states = [
     'Zamfara'
 ]
 
+const lgs = [
+    'Peace LG',
+    'Amazing LG',
+    'Confort LG',
+    'Grace LG',
+    'Joy LG',
+    'Hapiness LG',
+    'Gift LG',
+    'Success LG'
+]
+
 contract('Config Set', async accounts => {
     it('Set Vote Nft', async () => {
         const voteCore = await VoteCore.deployed()
@@ -132,7 +143,7 @@ contract('Create Agents', async accounts => {
             unit: 3
         }
 
-        const trx = await voteCore.createAgent(agent, accounts[1])
+        const trx = await voteCore.createAgent(agent, accounts[0])
 
         console.log(trx.tx);
     })
@@ -207,7 +218,7 @@ contract('Create Polls', async accounts => {
             endAt: (tomorrow.getTime() / 1000).toFixed(0),
             startAt: (now.getTime() / 1000).toFixed(0),
             numOfVotes: 0,
-            unit: 1,
+            unit: 3,
             nftUri: JSON.stringify({
                 name: "Thanks for voting",
                 description: "This NFT is not for sale",
@@ -262,10 +273,10 @@ contract('Create Voters', async accounts => {
             ),
             suspended: false,
             numOfVotes: 0,
-            unit: 1
+            unit: 2
         }, cardNumber = 74177279741;
 
-        const trx = await voteCore.createVoter(voter, accounts[1], cardNumber)
+        const trx = await voteCore.createVoter(voter, accounts[2], cardNumber)
 
         console.log(trx.tx);
     })
@@ -286,10 +297,10 @@ contract('Create Voters', async accounts => {
             ),
             suspended: false,
             numOfVotes: 0,
-            unit: 1
+            unit: 3
         }, cardNumber = 84269396443;
 
-        const trx = await voteCore.createVoter(voter, accounts[1], cardNumber)
+        const trx = await voteCore.createVoter(voter, accounts[3], cardNumber)
 
         console.log(trx.tx);
     })
@@ -405,14 +416,14 @@ contract('Create Parties', async accounts => {
     })
 })
 
-// contract('Vote Polls', async accounts => {
-//     it('Vote Poll For Id 1', async () => {
-//         const voteCore = await VoteCore.deployed()
+contract('Vote Polls', async accounts => {
+    it('Vote Poll For Id 1 From Me', async () => {
+        const voteCore = await VoteCore.deployed()
 
-//         const pollId = 1, voterId = accounts[1], partyId = 1
+        const pollId = 1, voterId = accounts[3], partyId = 1
 
-//         const trx = await voteCore.castVote(pollId, voterId, partyId)
+        const trx = await voteCore.castVote(pollId, voterId, partyId)
 
-//         console.log(trx.tx);
-//     })
-// })
+        console.log(trx.tx);
+    })
+})

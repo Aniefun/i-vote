@@ -68,12 +68,12 @@ export function handleManagerCreated(event: ManagerCreatedEvent): void {
 
 export function handlePartyCreated(event: PartyCreatedEvent): void {
   let entity = Party.load(
-    event.params.partyId.toHexString()
+    event.params.partyId.toString()
   );
 
   if (!entity) {
     entity = new Party(
-      event.params.partyId.toHexString()
+      event.params.partyId.toString()
     );
   }
 
@@ -89,12 +89,12 @@ export function handlePartyCreated(event: PartyCreatedEvent): void {
 
 export function handlePollCreated(event: PollCreatedEvent): void {
   let entity = Poll.load(
-    event.params.pollId.toHexString()
+    event.params.pollId.toString()
   );
 
   if (!entity) {
     entity = new Poll(
-      event.params.pollId.toHexString()
+      event.params.pollId.toString()
     );
   }
 
@@ -114,7 +114,7 @@ export function handlePollCreated(event: PollCreatedEvent): void {
 
 export function handlePollEnded(event: PollEndedEvent): void {
   let entity = Poll.load(
-    event.params.pollId.toHexString()
+    event.params.pollId.toString()
   );
   if (!entity) return;
 
@@ -125,7 +125,7 @@ export function handlePollEnded(event: PollEndedEvent): void {
 
 export function handlePollResumed(event: PollResumedEvent): void {
   let entity = Poll.load(
-    event.params.pollId.toHexString()
+    event.params.pollId.toString()
   );
   if (!entity) return;
 
@@ -136,19 +136,28 @@ export function handlePollResumed(event: PollResumedEvent): void {
 
 export function handleVoteCasted(event: VoteCastedEvent): void {
   let entity = Vote.load(
-    event.params.voterId.toHexString() + '_' + event.params.pollId.toHexString()
+    event.params.voterId.toHexString() + '_' + event.params.pollId.toString()
   );
 
   if (!entity) {
     entity = new Vote(
-      event.params.voterId.toHexString() + '_' + event.params.pollId.toHexString()
+      event.params.voterId.toHexString() + '_' + event.params.pollId.toString()
     );
+  }
+
+  let pollEntity = Poll.load(
+    event.params.pollId.toString()
+  );
+
+  if (pollEntity) {
+    pollEntity.numOfVotes = pollEntity.numOfVotes.plus(BigInt.fromU64(1));
+    pollEntity.save();
   }
 
   entity.pollId = event.params.pollId;
   entity.voterId = event.params.voterId;
   entity.partyId = event.params.partyId;
-  entity.poll = event.params.pollId.toHexString();
+  entity.poll = event.params.pollId.toString();
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -205,12 +214,12 @@ export function handleVoterUnSuspended(event: VoterUnSuspendedEvent): void {
 
 export function handleUnitCreated(event: UnitCreatedEvent): void {
   let entity = Unit.load(
-    event.params.unitId.toHexString()
+    event.params.unitId.toString()
   );
 
   if (!entity) {
     entity = new Unit(
-      event.params.unitId.toHexString()
+      event.params.unitId.toString()
     );
   };
 
